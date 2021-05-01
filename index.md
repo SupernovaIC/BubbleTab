@@ -1,37 +1,146 @@
-## Welcome to GitHub Pages
+Put some bubble in your tabs and give your apps a supa fresh style !
 
-You can use the [editor on GitHub](https://github.com/SupernovaIC/BubbleTab/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<a href="https://goo.gl/WXW8Dc">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[![screen](https://raw.githubusercontent.com/florent37/BubbleTab/master/media/withScreen_cropped.png)](https://github.com/florent37/BubbleTab)
 
-```markdown
-Syntax highlighted code block
+# Usage
 
-# Header 1
-## Header 2
-### Header 3
+[![screen](https://raw.githubusercontent.com/florent37/BubbleTab/master/media/video.gif)](https://github.com/florent37/BubbleTab)
 
-- Bulleted
-- List
+Add a BubbleTab with your icons on the layout.xml
 
-1. Numbered
-2. List
+Customisable parameters :
+- circleColor
+- circleRatio
 
-**Bold** and _Italic_ and `Code` text
+```xml
+<com.github.florent37.bubbletab.BubbleTab
+        android:id="@+id/bubbleTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:background="@android:color/white"
+        android:elevation="10dp"
 
-[Link](url) and ![Image](src)
+        app:bubbleTab_circleColor="@color/colorAccent"
+        app:bubbleTab_circleRatio="1.25"
+        >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:src="@drawable/bubbletab_ic_hourglass_selector" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:src="@drawable/bubbletab_ic_event_selector" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:src="@drawable/bubbletab_ic_query_selector" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:src="@drawable/bubbletab_ic_search_selector" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:src="@drawable/bubbletab_ic_home_selector" />
+
+</com.github.florent37.bubbletab.BubbleTab>
+
+<android.support.v4.view.ViewPager
+    android:id="@+id/viewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then bound it with your viewPager
 
-### Jekyll Themes
+```java
+bubbleTab.setupWithViewPager(viewPager);
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SupernovaIC/BubbleTab/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# Customisation
 
-### Support or Contact
+To display your home icon with a different color / content if selected / unselected
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Simply use selectors !
+
+[![screen](https://raw.githubusercontent.com/florent37/BubbleTab/master/media/different_icon.gif)](https://github.com/florent37/BubbleTab)
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@drawable/bubbletab_ic_account_selected"/>
+    <item android:drawable="@drawable/bubbletab_ic_account"/>
+</selector>
+```
+
+# Download
+
+In your module [![Download](https://api.bintray.com/packages/florent37/maven/BubbleTab/images/download.svg)](https://bintray.com/florent37/maven/BubbleTab/_latestVersion)
+```groovy
+compile 'com.github.florent37:bubbletab:1.0.2'
+```
+
+# Credits
+
+Author: Florent Champigny 
+
+Fiches Plateau Moto : [https://www.fiches-plateau-moto.fr/](https://www.fiches-plateau-moto.fr/)
+
+<a href="https://goo.gl/WXW8Dc">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
+
+
+<a href="https://plus.google.com/+florentchampigny">
+  <img alt="Follow me on Google+"
+       src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/gplus.png" />
+</a>
+<a href="https://twitter.com/florent_champ">
+  <img alt="Follow me on Twitter"
+       src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/twitter.png" />
+</a>
+<a href="https://www.linkedin.com/in/florentchampigny">
+  <img alt="Follow me on LinkedIn"
+       src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/linkedin.png" />
+</a>
+
+
+License
+--------
+
+    Copyright 2016 florent37, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
